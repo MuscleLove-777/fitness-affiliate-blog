@@ -142,13 +142,24 @@ def _parse_item(item: dict) -> Optional[dict]:
             actress_list = item_info.get("actress", [])
             actresses = [a.get("name", "") for a in actress_list if a.get("name")]
 
-        # サンプル画像URLのリスト
+        # サンプル画像URLのリスト（大きい画像 sample_l を優先）
         sample_images = []
         sample_image_data = item.get("sampleImageURL", {})
         if sample_image_data:
-            sample_s = sample_image_data.get("sample_s", {})
-            if sample_s:
-                sample_images = sample_s.get("image", [])
+            sample_l = sample_image_data.get("sample_l", {})
+            if sample_l:
+                sample_images = sample_l.get("image", [])
+            else:
+                # sample_l がない場合は sample_s からURLを変換して大きい画像を推測
+                sample_s = sample_image_data.get("sample_s", {})
+                if sample_s:
+                    small_images = sample_s.get("image", [])
+                    # sample_s の URL パターン: xxxxx-1.jpg → xxxxx jp-1.jpg
+                    import re as _re
+                    for img in small_images:
+                        # jur00701-1.jpg → jur00701jp-1.jpg のように変換
+                        large_img = _re.sub(r'(\w+)-(\d+\.jpg)$', r'\1jp-\2', img)
+                        sample_images.append(large_img)
 
         # サンプル動画URL
         sample_movie_url = ""

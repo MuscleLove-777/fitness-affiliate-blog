@@ -16,6 +16,67 @@ from config import Config
 # 記事テンプレート群（バリエーションで重複コンテンツを回避）
 # ============================================================
 
+RESPONSIVE_CSS = """
+<style>
+.sample-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 1em 0;
+}
+.sample-gallery img {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cta-box a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #e63946;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.sns-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 1.5em 0;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 1.5em auto;
+}
+.video-container iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 560/360;
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .sample-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cta-box a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+  }
+  .sns-links {
+    flex-direction: column;
+  }
+  .sns-links a {
+    text-align: center;
+  }
+}
+</style>
+"""
+
 ARTICLE_TEMPLATES = [
     # テンプレートA: ストレート紹介型
     Template("""---
@@ -26,6 +87,8 @@ categories: ["フィットネス", "おすすめ"]
 draft: false
 description: "{{ meta_description }}"
 ---
+
+{{ responsive_css }}
 
 ## {{ hook_title }}
 
@@ -70,6 +133,8 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
+{{ responsive_css }}
+
 {{ intro_text }}
 
 <!--more-->
@@ -113,6 +178,8 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
+{{ responsive_css }}
+
 ## 本日のピックアップ
 
 {{ intro_text }}
@@ -151,6 +218,8 @@ categories: ["フィットネス", "Q&A"]
 draft: false
 description: "{{ meta_description }}"
 ---
+
+{{ responsive_css }}
 
 {{ intro_text }}
 
@@ -352,6 +421,7 @@ def _generate_single_article(
         sample_movie=sample_movie,
         sns_section=sns_section,
         related_section=related_section,
+        responsive_css=RESPONSIVE_CSS,
     )
 
     # ファイル書き出し
@@ -399,8 +469,7 @@ def _build_cta(affiliate_url: str, title: str) -> str:
 
     return f"""
 <div class="cta-box" style="text-align: center; margin: 2em 0;">
-  <a href="{affiliate_url}" rel="nofollow" target="_blank"
-     style="display: inline-block; padding: 15px 40px; background: #e63946; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.1em; font-weight: bold;">
+  <a href="{affiliate_url}" rel="nofollow" target="_blank">
     {cta_text}
   </a>
   <p style="margin-top: 0.5em; font-size: 0.85em; color: #888;">※外部サイトに移動します</p>
@@ -409,7 +478,7 @@ def _build_cta(affiliate_url: str, title: str) -> str:
 
 
 def _build_sample_gallery(sample_images: list[str]) -> str:
-    """サンプル画像ギャラリーを生成する（最大6枚）"""
+    """サンプル画像ギャラリーを生成する（最大6枚、レスポンシブグリッド）"""
     if not sample_images:
         return ""
 
@@ -418,10 +487,10 @@ def _build_sample_gallery(sample_images: list[str]) -> str:
     gallery_html = """
 ### サンプル画像
 
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 1em 0;">
+<div class="sample-gallery">
 """
     for img_url in images:
-        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" style="width: 30%; min-width: 150px; border-radius: 4px;" loading="lazy" />\n'
+        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" loading="lazy" />\n'
 
     gallery_html += "</div>\n"
     return gallery_html
@@ -435,10 +504,8 @@ def _build_sample_movie(sample_movie_url: str) -> str:
     return f"""
 ### サンプル動画を見る
 
-<div style="text-align: center; margin: 1.5em 0;">
-  <iframe src="{sample_movie_url}" width="560" height="360" frameborder="0" allowfullscreen
-          style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-  </iframe>
+<div class="video-container">
+  <iframe src="{sample_movie_url}" frameborder="0" allowfullscreen></iframe>
 </div>
 """
 
@@ -448,7 +515,7 @@ def _build_sns_section() -> str:
     return """
 ### フォロー & もっと見る
 
-<div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5em 0;">
+<div class="sns-links">
   <a href="https://www.patreon.com/musclelovejp" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
     もっとフィットネスコンテンツを見る
