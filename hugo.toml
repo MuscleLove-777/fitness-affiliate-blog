@@ -1,0 +1,77 @@
+baseURL = "https://example.github.io/fitness-life/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "フィットネスライフ"
+theme = "PaperMod"
+paginate = 10
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[params]
+  env = "production"
+  description = "フィットネス・筋トレ・ボディメイクの情報をお届けするブログ"
+  author = "フィットネスライフ編集部"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  comments = false
+
+  [params.homeInfoParams]
+    Title = "フィットネスライフ"
+    Content = "筋トレ・ボディメイク・フィットネスに関する情報を発信しています"
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "#"
+
+[params.assets]
+  favicon = "/favicon.ico"
+
+[params.cover]
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+
+[[menus.main]]
+  name = "検索"
+  url = "/search/"
+  weight = 10
+
+[[menus.main]]
+  name = "カテゴリ"
+  url = "/categories/"
+  weight = 20
+
+[[menus.main]]
+  name = "タグ"
+  url = "/tags/"
+  weight = 30
+
+[[menus.main]]
+  name = "アーカイブ"
+  url = "/archives/"
+  weight = 40
