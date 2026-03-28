@@ -38,6 +38,10 @@ buildExpired = false
     name = "x-twitter"
     url = "https://x.com/MuscleGirlLove7"
 
+  [[params.socialIcons]]
+    name = "linktree"
+    url = "https://linktr.ee/ILoveMyCats"
+
 [params.assets]
   favicon = "favicon.svg"
   favicon16x16 = "favicon.svg"
