@@ -30,7 +30,7 @@ draft: false
 description: "{{ meta_description }}"
 cover:
   image: "{{ image_url }}"
-  alt: "{{ title }}"
+  alt: "{{ alt_text }}"
   hidden: false
 ---
 
@@ -41,13 +41,13 @@ cover:
 
 <!--more-->
 
-![{{ title }}]({{ image_url }})
+![{{ alt_text }}]({{ image_url }})
 
 {{ sample_gallery }}
 
 {{ sample_movie }}
 
-### 商品情報
+### 筋肉美女の注目ポイント・商品情報
 
 | 項目 | 内容 |
 |------|------|
@@ -78,7 +78,7 @@ draft: false
 description: "{{ meta_description }}"
 cover:
   image: "{{ image_url }}"
-  alt: "{{ title }}"
+  alt: "{{ alt_text }}"
   hidden: false
 ---
 
@@ -87,9 +87,9 @@ cover:
 
 <!--more-->
 
-## 作品の見どころ
+## 筋肉質な美女が魅せる作品の見どころ
 
-![{{ title }}]({{ image_url }})
+![{{ alt_text }}]({{ image_url }})
 
 {{ sample_gallery }}
 
@@ -98,7 +98,7 @@ cover:
 {{ body_text }}
 
 {% if actresses %}
-### 出演者について
+### マッスル女優・出演者について
 
 {{ actresses }}さんが出演するこの作品。ファンなら見逃せない一本です。
 {% endif %}
@@ -126,24 +126,24 @@ draft: false
 description: "{{ meta_description }}"
 cover:
   image: "{{ image_url }}"
-  alt: "{{ title }}"
+  alt: "{{ alt_text }}"
   hidden: false
 ---
 
 
-## 本日のピックアップ
+## 本日のフィットネスAVピックアップ
 
 {{ intro_text }}
 
 <!--more-->
 
-![{{ title }}]({{ image_url }})
+![{{ alt_text }}]({{ image_url }})
 
 {{ sample_gallery }}
 
 {{ sample_movie }}
 
-### この作品をおすすめする理由
+### 筋肉質な女優が光るこの作品をおすすめする理由
 
 {{ body_text }}
 
@@ -170,7 +170,7 @@ draft: false
 description: "{{ meta_description }}"
 cover:
   image: "{{ image_url }}"
-  alt: "{{ title }}"
+  alt: "{{ alt_text }}"
   hidden: false
 ---
 
@@ -179,13 +179,13 @@ cover:
 
 <!--more-->
 
-![{{ title }}]({{ image_url }})
+![{{ alt_text }}]({{ image_url }})
 
 {{ sample_gallery }}
 
 {{ sample_movie }}
 
-### Q. どんな作品？
+### Q. どんな筋肉美女AV作品？
 
 {{ body_text }}
 
@@ -227,24 +227,24 @@ INTRO_VARIATIONS = [
 ]
 
 BODY_VARIATIONS = [
-    "カメラワークが絶妙で、女優の身体の美しさを余すところなく映し出しています。特に筋肉の質感とエロさの両立が素晴らしい。抜きどころ満載の一本。",
-    "序盤からテンション高めの展開で、一気に引き込まれます。絡みのシーンは濃厚かつ丁寧で、何度もリピートしたくなるクオリティ。",
-    "とにかく女優のスタイルが最高。鍛え上げられた身体のエロさが際立つ演出で、見応え抜群です。サンプル動画でその片鱗を確認してみてください。",
-    "完成度が高く、絡みのバリエーションも豊富。飽きることなく最後まで楽しめる作品です。個人的にはリピート確定レベル。",
-    "映像のクオリティが高く、女優の表情や身体のラインがしっかり映えています。オカズとしてもコレクションとしても満足度の高い一本。",
-    "この手のジャンルが好きなら間違いなく刺さる作品。演出・カメラアングル・女優の魅力、すべてが高水準でまとまっています。",
-    "抜けるかどうかで言えば、間違いなく抜ける。テンポよく進む展開と、ここぞという場面のねっとり感のバランスが絶妙です。",
+    "カメラワークが絶妙で、筋肉質な女優の身体の美しさを余すところなく映し出しています。特に腹筋の質感とエロさの両立が素晴らしい。抜きどころ満載の一本。",
+    "序盤からテンション高めの展開で、一気に引き込まれます。フィットネスで鍛え上げた身体の絡みシーンは濃厚かつ丁寧で、何度もリピートしたくなるクオリティ。",
+    "とにかく女優のスタイルが最高。鍛え上げられた筋肉美女のエロさが際立つ演出で、見応え抜群です。サンプル動画でその片鱗を確認してみてください。",
+    "完成度が高く、マッスル女優の魅力が全開。絡みのバリエーションも豊富で飽きることなく最後まで楽しめる作品です。リピート確定レベル。",
+    "映像のクオリティが高く、筋肉質な美女の表情や身体のラインがしっかり映えています。オカズとしてもコレクションとしても満足度の高い一本。",
+    "筋肉系AV好きなら間違いなく刺さる作品。演出・カメラアングル・フィットネス女優の魅力、すべてが高水準でまとまっています。",
+    "抜けるかどうかで言えば、間違いなく抜ける。腹筋美女のしなやかな身体と、ここぞという場面のねっとり感のバランスが絶妙です。",
 ]
 
 HOOK_TITLES = [
     "今夜のおかずはコレで決まり",
-    "抜けるおすすめ作品",
-    "見逃し厳禁！エロすぎ注意",
-    "本日のシコネタ",
-    "ガチで抜ける厳選ピックアップ",
-    "今すぐサンプルをチェック",
+    "筋肉質な美女の抜けるおすすめ作品",
+    "見逃し厳禁！マッスル女優のエロすぎ注意作品",
+    "フィットネスAVの本日のシコネタ",
+    "腹筋美女のガチで抜ける厳選ピックアップ",
+    "筋肉美女のサンプルを今すぐチェック",
     "筋肉美女の激エロ作品",
-    "話題のエロ作品を紹介",
+    "話題の筋肉系セクシー作品を紹介",
 ]
 
 
@@ -341,7 +341,7 @@ def _generate_single_article(
     )
     body_text = random.choice(BODY_VARIATIONS)
     hook_title = random.choice(HOOK_TITLES)
-    meta_description = _truncate(f"{title} - {genre_text}ジャンルのおすすめ作品を紹介", 120)
+    meta_description = _build_meta_description(title, genre_text, actresses)
 
     # CTAセクションの生成
     cta_section = _build_cta(affiliate_url, title)
@@ -357,6 +357,9 @@ def _generate_single_article(
 
     # 関連商品セクション
     related_section = _build_related_section()
+
+    # alt属性テキストの生成（SEO向け具体的説明）
+    alt_text = _build_alt_text(title, actresses, genre_text)
 
     # ランダムにテンプレートを選択
     template = random.choice(ARTICLE_TEMPLATES)
@@ -375,6 +378,7 @@ def _generate_single_article(
         maker=maker,
         series=series,
         actresses=actresses,
+        alt_text=alt_text,
         cta_section=cta_section,
         sample_gallery=sample_gallery,
         sample_movie=sample_movie,
@@ -405,11 +409,39 @@ def _make_slug(content_id: str, index: int) -> str:
     return f"product-{index:03d}"
 
 
+def _build_meta_description(title: str, genre_text: str, actresses: str) -> str:
+    """SEOキーワードを自然に含んだmeta descriptionを生成する"""
+    desc_variations = [
+        f"{title}のサンプル動画・レビュー。筋肉質な美女が魅せる{genre_text}系セクシー作品を紹介。",
+        f"筋肉美女が出演する「{title}」を徹底レビュー。{genre_text}好きにおすすめのフィットネス系AV。",
+        f"マッスル女優が魅せる{genre_text}作品「{title}」。腹筋美女の鍛え上げたボディに興奮必至。",
+        f"フィットネスAVの注目作「{title}」。筋肉質な女優の{genre_text}シーンをサンプル動画付きで紹介。",
+    ]
+    if actresses:
+        desc_variations.append(
+            f"{actresses}出演「{title}」。筋肉質な美女の{genre_text}系セクシー動画をチェック。"
+        )
+    desc = random.choice(desc_variations)
+    return _truncate(desc, 155)
+
+
 def _truncate(text: str, max_len: int) -> str:
     """テキストを指定文字数で切り詰める"""
     if len(text) <= max_len:
         return text
     return text[: max_len - 1] + "…"
+
+
+def _build_alt_text(title: str, actresses: str, genre_text: str) -> str:
+    """SEO向けの具体的なalt属性テキストを生成する"""
+    alt_variations = [
+        f"筋肉質な美女が出演する「{title}」のパッケージ画像",
+        f"「{title}」{genre_text}系フィットネスAV作品のサムネイル",
+        f"マッスル女優が魅せる「{title}」の作品画像",
+    ]
+    if actresses:
+        alt_variations.append(f"{actresses}出演「{title}」筋肉美女セクシー作品の画像")
+    return _truncate(random.choice(alt_variations), 120)
 
 
 def _build_cta(affiliate_url: str, title: str) -> str:
@@ -449,8 +481,8 @@ def _build_sample_gallery(sample_images: list[str]) -> str:
 
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 1em 0;">
 """
-    for img_url in images:
-        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" style="width: 100%; border-radius: 4px;" loading="lazy" />\n'
+    for idx, img_url in enumerate(images, 1):
+        gallery_html += f'  <img src="{img_url}" alt="筋肉美女セクシー作品のサンプル画像{idx}" style="width: 100%; border-radius: 4px;" loading="lazy" />\n'
 
     gallery_html += "</div>\n"
     return gallery_html

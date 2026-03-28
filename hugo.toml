@@ -10,10 +10,16 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
+[sitemap]
+  changefreq = "daily"
+  priority = 0.5
+
 [params]
   env = "production"
-  description = "筋肉系・フィットネス系のセクシー作品を厳選紹介"
+  description = "筋肉質な美女・マッスル女優が登場するセクシー動画を毎日厳選してお届け。フィットネス系AVの最新作品をサンプル動画付きで紹介。"
   author = "筋肉美女ナビ"
+  images = ["https://musclelove-777.github.io/fitness-affiliate-blog/favicon.svg"]
+  keywords = ["筋肉 AV", "マッスル女優", "フィットネス AV", "筋肉質 女優", "腹筋 美女", "筋肉美女", "セクシー フィットネス"]
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = true
