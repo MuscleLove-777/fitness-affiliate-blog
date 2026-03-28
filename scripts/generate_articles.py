@@ -63,6 +63,8 @@ cover:
 
 ---
 
+{{ footer_brand }}
+
 {{ sns_section }}
 
 {{ related_section }}
@@ -111,6 +113,8 @@ cover:
 
 ---
 
+{{ footer_brand }}
+
 {{ sns_section }}
 
 {{ related_section }}
@@ -154,6 +158,8 @@ cover:
 {{ cta_section }}
 
 ---
+
+{{ footer_brand }}
 
 {{ sns_section }}
 
@@ -203,6 +209,8 @@ cover:
 
 ---
 
+{{ footer_brand }}
+
 {{ sns_section }}
 
 {{ related_section }}
@@ -224,6 +232,9 @@ INTRO_VARIATIONS = [
     "新着から見つけた掘り出し物！**「{title}」**、{genre_text}がたっぷり詰まった一本です。",
     "サンプル動画だけでも興奮必至！**「{title}」**は{genre_text}の最高傑作かも。",
     "今週一番シコれる作品はコレ。**「{title}」**、{genre_text}好きは見逃すな！",
+    "MuscleLoveが厳選！**「{title}」**は{genre_text}好きなら見逃せない一本です。",
+    "MuscleLove編集部おすすめの**「{title}」**。{genre_text}ジャンルで今一番アツい作品。",
+    "MuscleLoveイチオシ！**「{title}」**、{genre_text}好きを唸らせる最高の一本が来ました。",
 ]
 
 BODY_VARIATIONS = [
@@ -245,6 +256,9 @@ HOOK_TITLES = [
     "筋肉美女のサンプルを今すぐチェック",
     "筋肉美女の激エロ作品",
     "話題の筋肉系セクシー作品を紹介",
+    "MuscleLoveのイチオシ作品",
+    "MuscleLove厳選！今日の一本",
+    "MuscleLoveが選ぶ注目のマッスル美女作品",
 ]
 
 
@@ -355,6 +369,9 @@ def _generate_single_article(
     # SNSリンクセクション
     sns_section = _build_sns_section()
 
+    # フッターブランド表示
+    footer_brand = _build_footer_brand()
+
     # 関連商品セクション
     related_section = _build_related_section()
 
@@ -383,6 +400,7 @@ def _generate_single_article(
         sample_gallery=sample_gallery,
         sample_movie=sample_movie,
         sns_section=sns_section,
+        footer_brand=footer_brand,
         related_section=related_section,
         responsive_css=RESPONSIVE_CSS,
     )
@@ -521,15 +539,22 @@ def _build_sns_section() -> str:
 """
 
 
+def _build_footer_brand() -> str:
+    """フッターのブランド表示を生成する"""
+    return """
+<p style="text-align: center; margin: 2em 0 0.5em; font-size: 0.9em; color: #888;">Presented by <strong>MuscleLove</strong></p>
+"""
+
+
 def _build_related_section() -> str:
     """関連コンテンツセクションを生成する"""
     suggestions = [
-        "他にも筋肉美女系のセクシー作品を多数紹介しています。",
-        "このジャンルの他の抜ける作品もチェックしてみてください。",
+        "MuscleLoveでもっと筋肉美女系のセクシー作品を探す。",
+        "このジャンルの他の抜ける作品もMuscleLoveでチェック！",
         "関連するエロ作品は、カテゴリーページからご覧いただけます。",
     ]
     return f"""
-### あわせてチェック
+### MuscleLoveでもっと見る
 
 {random.choice(suggestions)}
 

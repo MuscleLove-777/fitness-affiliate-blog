@@ -1,7 +1,7 @@
 baseURL = "https://musclelove-777.github.io/fitness-affiliate-blog/"
 languageCode = "ja"
 defaultContentLanguage = "ja"
-title = "筋肉美女ナビ"
+title = "MuscleLove セクシー筋肉美女ナビ"
 theme = "PaperMod"
 paginate = 10
 
@@ -16,8 +16,8 @@ buildExpired = false
 
 [params]
   env = "production"
-  description = "筋肉質な美女・マッスル女優が登場するセクシー動画を毎日厳選してお届け。フィットネス系AVの最新作品をサンプル動画付きで紹介。"
-  author = "筋肉美女ナビ"
+  description = "MuscleLoveが厳選する筋肉質な美女・マッスル女優のセクシー動画を毎日お届け。フィットネス系AVの最新作品をサンプル動画付きで紹介。"
+  author = "MuscleLove"
   images = ["https://musclelove-777.github.io/fitness-affiliate-blog/favicon.svg"]
   keywords = ["筋肉 AV", "マッスル女優", "フィットネス AV", "筋肉質 女優", "腹筋 美女", "筋肉美女", "セクシー フィットネス"]
   defaultTheme = "auto"
@@ -31,8 +31,8 @@ buildExpired = false
   comments = false
 
   [params.homeInfoParams]
-    Title = "筋肉美女ナビ"
-    Content = "筋肉質な美女が登場するセクシー動画を毎日厳選してお届け。気になる作品はサンプル動画でチェック！"
+    Title = "MuscleLove"
+    Content = "MuscleLoveが厳選する筋肉質な美女のセクシー動画。毎日更新、サンプル動画付き！"
 
   [[params.socialIcons]]
     name = "x-twitter"
