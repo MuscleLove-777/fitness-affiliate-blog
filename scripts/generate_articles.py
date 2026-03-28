@@ -516,7 +516,7 @@ def _build_sns_section() -> str:
 ### フォロー & もっと見る
 
 <div class="sns-links">
-  <a href="https://www.patreon.com/musclelovejp" rel="nofollow" target="_blank"
+  <a href="https://www.patreon.com/c/MuscleLove" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
     もっとフィットネスコンテンツを見る
   </a>
