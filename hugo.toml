@@ -58,6 +58,9 @@ buildExpired = false
   home = ["HTML", "RSS", "JSON"]
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.highlight]
     noClasses = false
 
