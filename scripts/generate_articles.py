@@ -480,7 +480,7 @@ def _build_related_section() -> str:
 
 {random.choice(suggestions)}
 
-[カテゴリー一覧を見る](/categories/) | [タグ一覧を見る](/tags/)
+[カテゴリー一覧を見る](/fitness-affiliate-blog/categories/) | [タグ一覧を見る](/fitness-affiliate-blog/tags/)
 """
 
 

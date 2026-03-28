@@ -5,7 +5,6 @@ title = "フィットネスライフ"
 theme = "PaperMod"
 paginate = 10
 
-relativeURLs = true
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
