@@ -324,13 +324,7 @@ def _generate_single_article(
 
 
 def _format_date(raw_date: str) -> str:
-    """APIの日付文字列をHugo用のISO形式に変換する"""
-    if raw_date:
-        try:
-            dt = datetime.strptime(raw_date, "%Y-%m-%d %H:%M:%S")
-            return dt.strftime("%Y-%m-%dT%H:%M:%S+09:00")
-        except ValueError:
-            pass
+    """常に生成時の今日の日付をHugo用のISO形式で返す（未来日付を防止）"""
     return datetime.now().strftime("%Y-%m-%dT%H:%M:%S+09:00")
 
 
