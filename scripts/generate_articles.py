@@ -474,16 +474,16 @@ def _build_sample_movie(sample_movie_url: str) -> str:
 def _build_sns_section() -> str:
     """SNSリンクセクションを生成する"""
     return """
-### フォロー & もっと見る
+### MuscleLove
 
 <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5em 0;">
   <a href="https://www.patreon.com/c/MuscleLove" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
-    もっとセクシーコンテンツを見る
+    MuscleLove on Patreon
   </a>
   <a href="https://x.com/MuscleGirlLove7" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
-    フォローして最新情報をGET
+    MuscleLove on X
   </a>
 </div>
 """
