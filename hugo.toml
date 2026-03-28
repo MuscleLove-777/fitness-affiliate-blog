@@ -33,7 +33,11 @@ buildExpired = false
     url = "https://x.com/MuscleGirlLove7"
 
 [params.assets]
-  favicon = "/favicon.ico"
+  favicon = "favicon.svg"
+  favicon16x16 = "favicon.svg"
+  favicon32x32 = "favicon.svg"
+  apple_touch_icon = "favicon.svg"
+  safari_pinned_tab = "favicon.svg"
 
 [params.cover]
   hidden = false

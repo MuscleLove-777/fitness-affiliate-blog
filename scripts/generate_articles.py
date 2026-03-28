@@ -165,7 +165,7 @@ cover:
 title: "{{ title }}"
 date: {{ date }}
 tags: [{{ tags }}]
-categories: ["セクシー", "Q&A"]
+categories: ["セクシー", "よくある質問"]
 draft: false
 description: "{{ meta_description }}"
 cover:
