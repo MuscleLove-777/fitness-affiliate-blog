@@ -16,66 +16,8 @@ from config import Config
 # 記事テンプレート群（バリエーションで重複コンテンツを回避）
 # ============================================================
 
-RESPONSIVE_CSS = """
-<style>
-.sample-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin: 1em 0;
-}
-.sample-gallery img {
-  width: 100%;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.cta-box a {
-  display: inline-block;
-  padding: 15px 40px;
-  background: #e63946;
-  color: #fff !important;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-.sns-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin: 1.5em 0;
-}
-.video-container {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  margin: 1.5em auto;
-}
-.video-container iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 560/360;
-  border-radius: 8px;
-}
-@media (max-width: 768px) {
-  .sample-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cta-box a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 15px 20px;
-  }
-  .sns-links {
-    flex-direction: column;
-  }
-  .sns-links a {
-    text-align: center;
-  }
-}
-</style>
-"""
+# CSSは使わず全てインラインスタイルで対応（テーマのCSS干渉を防止）
+RESPONSIVE_CSS = ""
 
 ARTICLE_TEMPLATES = [
     # テンプレートA: ストレート紹介型
@@ -88,7 +30,6 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
-{{ responsive_css }}
 
 ## {{ hook_title }}
 
@@ -133,7 +74,6 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
-{{ responsive_css }}
 
 {{ intro_text }}
 
@@ -178,7 +118,6 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
-{{ responsive_css }}
 
 ## 本日のピックアップ
 
@@ -219,7 +158,6 @@ draft: false
 description: "{{ meta_description }}"
 ---
 
-{{ responsive_css }}
 
 {{ intro_text }}
 
@@ -468,8 +406,9 @@ def _build_cta(affiliate_url: str, title: str) -> str:
     cta_text = random.choice(cta_texts)
 
     return f"""
-<div class="cta-box" style="text-align: center; margin: 2em 0;">
-  <a href="{affiliate_url}" rel="nofollow" target="_blank">
+<div style="text-align: center; margin: 2em 0;">
+  <a href="{affiliate_url}" rel="nofollow" target="_blank"
+     style="display: inline-block; padding: 15px 40px; background: #e63946; color: #fff; text-decoration: none; border-radius: 8px; font-size: 1.1em; font-weight: bold;">
     {cta_text}
   </a>
   <p style="margin-top: 0.5em; font-size: 0.85em; color: #888;">※外部サイトに移動します</p>
@@ -478,7 +417,7 @@ def _build_cta(affiliate_url: str, title: str) -> str:
 
 
 def _build_sample_gallery(sample_images: list[str]) -> str:
-    """サンプル画像ギャラリーを生成する（最大6枚、レスポンシブグリッド）"""
+    """サンプル画像ギャラリーを生成する（最大6枚、インラインスタイル）"""
     if not sample_images:
         return ""
 
@@ -487,10 +426,10 @@ def _build_sample_gallery(sample_images: list[str]) -> str:
     gallery_html = """
 ### サンプル画像
 
-<div class="sample-gallery">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 1em 0;">
 """
     for img_url in images:
-        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" loading="lazy" />\n'
+        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" style="width: 100%; border-radius: 4px;" loading="lazy" />\n'
 
     gallery_html += "</div>\n"
     return gallery_html
@@ -504,8 +443,9 @@ def _build_sample_movie(sample_movie_url: str) -> str:
     return f"""
 ### サンプル動画を見る
 
-<div class="video-container">
-  <iframe src="{sample_movie_url}" frameborder="0" allowfullscreen></iframe>
+<div style="width: 100%; max-width: 560px; margin: 1.5em auto;">
+  <iframe src="{sample_movie_url}" width="560" height="360" frameborder="0" allowfullscreen
+          style="width: 100%; height: auto; aspect-ratio: 560/360; border-radius: 8px;"></iframe>
 </div>
 """
 
@@ -515,7 +455,7 @@ def _build_sns_section() -> str:
     return """
 ### フォロー & もっと見る
 
-<div class="sns-links">
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5em 0;">
   <a href="https://www.patreon.com/c/MuscleLove" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
     もっとフィットネスコンテンツを見る
