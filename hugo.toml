@@ -1,7 +1,7 @@
 baseURL = "https://musclelove-777.github.io/fitness-affiliate-blog/"
 languageCode = "ja"
 defaultContentLanguage = "ja"
-title = "フィットネスライフ"
+title = "筋肉美女ナビ"
 theme = "PaperMod"
 paginate = 10
 
@@ -12,8 +12,8 @@ buildExpired = false
 
 [params]
   env = "production"
-  description = "フィットネス・筋トレ・ボディメイクの情報をお届けするブログ"
-  author = "フィットネスライフ編集部"
+  description = "筋肉系・フィットネス系のセクシー作品を厳選紹介"
+  author = "筋肉美女ナビ"
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = true
@@ -25,8 +25,8 @@ buildExpired = false
   comments = false
 
   [params.homeInfoParams]
-    Title = "フィットネスライフ"
-    Content = "筋トレ・ボディメイク・フィットネスに関する情報を発信しています"
+    Title = "筋肉美女ナビ"
+    Content = "筋肉質な美女が登場するセクシー動画を毎日厳選してお届け。気になる作品はサンプル動画でチェック！"
 
   [[params.socialIcons]]
     name = "x-twitter"
@@ -38,7 +38,7 @@ buildExpired = false
 [params.cover]
   hidden = false
   hiddenInList = false
-  hiddenInSingle = false
+  hiddenInSingle = true
 
 [params.fuseOpts]
   isCaseSensitive = false

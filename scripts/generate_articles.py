@@ -25,9 +25,13 @@ ARTICLE_TEMPLATES = [
 title: "{{ title }}"
 date: {{ date }}
 tags: [{{ tags }}]
-categories: ["フィットネス", "おすすめ"]
+categories: ["セクシー", "おすすめ"]
 draft: false
 description: "{{ meta_description }}"
+cover:
+  image: "{{ image_url }}"
+  alt: "{{ title }}"
+  hidden: false
 ---
 
 
@@ -69,9 +73,13 @@ description: "{{ meta_description }}"
 title: "{{ title }}"
 date: {{ date }}
 tags: [{{ tags }}]
-categories: ["レビュー", "フィットネス"]
+categories: ["レビュー", "セクシー"]
 draft: false
 description: "{{ meta_description }}"
+cover:
+  image: "{{ image_url }}"
+  alt: "{{ title }}"
+  hidden: false
 ---
 
 
@@ -116,6 +124,10 @@ tags: [{{ tags }}]
 categories: ["ピックアップ", "注目作品"]
 draft: false
 description: "{{ meta_description }}"
+cover:
+  image: "{{ image_url }}"
+  alt: "{{ title }}"
+  hidden: false
 ---
 
 
@@ -153,9 +165,13 @@ description: "{{ meta_description }}"
 title: "{{ title }}"
 date: {{ date }}
 tags: [{{ tags }}]
-categories: ["フィットネス", "Q&A"]
+categories: ["セクシー", "Q&A"]
 draft: false
 description: "{{ meta_description }}"
+cover:
+  image: "{{ image_url }}"
+  alt: "{{ title }}"
+  hidden: false
 ---
 
 
@@ -199,31 +215,36 @@ description: "{{ meta_description }}"
 # ============================================================
 
 INTRO_VARIATIONS = [
-    "今回は**「{title}」**をご紹介します。{genre_text}が好きな方にはたまらない作品です。",
-    "注目の作品が登場しました！**「{title}」**は、{genre_text}好きなら要チェックの一本。",
-    "{genre_text}を探している方に朗報です。**「{title}」**が今おすすめ！",
-    "話題の**「{title}」**をピックアップ。{genre_text}をテーマにした注目作品です。",
-    "**「{title}」**が気になる方へ。{genre_text}ジャンルの中でも特に評価の高い一作をご紹介。",
-    "本日のおすすめは**「{title}」**です。{genre_text}ファンの間で話題になっています。",
-    "新着作品の中から**「{title}」**をセレクト。{genre_text}が充実した内容です。",
+    "今夜のお供にいかが？**「{title}」**は{genre_text}好きにはたまらない一本です。",
+    "これはヤバい...！**「{title}」**、{genre_text}好きなら絶対ハマる作品が来ました。",
+    "{genre_text}で興奮したいならコレ！**「{title}」**がマジでおすすめ。",
+    "話題沸騰中の**「{title}」**をピックアップ。{genre_text}のド直球作品です。",
+    "**「{title}」**が気になってる人、正解です。{genre_text}ジャンルの中でもガチで抜ける一作。",
+    "本日の厳選エロは**「{title}」**。{genre_text}好きの間で「神作品」と話題に。",
+    "新着から見つけた掘り出し物！**「{title}」**、{genre_text}がたっぷり詰まった一本です。",
+    "サンプル動画だけでも興奮必至！**「{title}」**は{genre_text}の最高傑作かも。",
+    "今週一番シコれる作品はコレ。**「{title}」**、{genre_text}好きは見逃すな！",
 ]
 
 BODY_VARIATIONS = [
-    "この作品の魅力は、何といってもクオリティの高さです。映像美・演出ともにハイレベルで、最後まで飽きさせない構成になっています。",
-    "ストーリー展開がしっかりしていて、見応えがあります。細部までこだわった演出が光る一作です。",
-    "評価の高い作品だけあって、内容の充実度はさすがの一言。じっくり楽しみたい方におすすめです。",
-    "全体的に完成度が高く、リピートしたくなるクオリティ。ファンの期待を裏切らない仕上がりです。",
-    "注目ポイントが多く、見るたびに新しい発見がある作品。コレクションに加えたい一本です。",
-    "しっかりとした作り込みが感じられる作品です。初めての方もリピーターも満足できるクオリティ。",
+    "カメラワークが絶妙で、女優の身体の美しさを余すところなく映し出しています。特に筋肉の質感とエロさの両立が素晴らしい。抜きどころ満載の一本。",
+    "序盤からテンション高めの展開で、一気に引き込まれます。絡みのシーンは濃厚かつ丁寧で、何度もリピートしたくなるクオリティ。",
+    "とにかく女優のスタイルが最高。鍛え上げられた身体のエロさが際立つ演出で、見応え抜群です。サンプル動画でその片鱗を確認してみてください。",
+    "完成度が高く、絡みのバリエーションも豊富。飽きることなく最後まで楽しめる作品です。個人的にはリピート確定レベル。",
+    "映像のクオリティが高く、女優の表情や身体のラインがしっかり映えています。オカズとしてもコレクションとしても満足度の高い一本。",
+    "この手のジャンルが好きなら間違いなく刺さる作品。演出・カメラアングル・女優の魅力、すべてが高水準でまとまっています。",
+    "抜けるかどうかで言えば、間違いなく抜ける。テンポよく進む展開と、ここぞという場面のねっとり感のバランスが絶妙です。",
 ]
 
 HOOK_TITLES = [
-    "注目の作品をご紹介",
-    "今チェックすべき一本",
-    "見逃し厳禁！話題の作品",
-    "本日のイチオシ",
-    "ファン必見のピックアップ",
-    "今すぐチェックしたい作品",
+    "今夜のおかずはコレで決まり",
+    "抜けるおすすめ作品",
+    "見逃し厳禁！エロすぎ注意",
+    "本日のシコネタ",
+    "ガチで抜ける厳選ピックアップ",
+    "今すぐサンプルをチェック",
+    "筋肉美女の激エロ作品",
+    "話題のエロ作品を紹介",
 ]
 
 
@@ -307,11 +328,11 @@ def _generate_single_article(
         return ""
 
     # タグの生成
-    tag_list = genres[:5] if genres else ["フィットネス", "おすすめ"]
+    tag_list = genres[:5] if genres else ["セクシー", "おすすめ"]
     tags = ", ".join(f'"{t}"' for t in tag_list)
 
     # ジャンルテキスト（導入文用）
-    genre_text = "・".join(genres[:3]) if genres else "フィットネス"
+    genre_text = "・".join(genres[:3]) if genres else "セクシー"
 
     # テンプレート変数の準備
     intro_text = random.choice(INTRO_VARIATIONS).format(
@@ -397,11 +418,11 @@ def _build_cta(affiliate_url: str, title: str) -> str:
         return ""
 
     cta_texts = [
-        "詳細をチェックする",
-        "今すぐ見る",
+        "サンプル動画を見る",
+        "今すぐ抜きに行く",
         "この作品をチェック",
-        "詳しくはこちら",
-        "作品ページへ",
+        "フル動画はこちら",
+        "作品ページへGO",
     ]
     cta_text = random.choice(cta_texts)
 
@@ -458,7 +479,7 @@ def _build_sns_section() -> str:
 <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5em 0;">
   <a href="https://www.patreon.com/c/MuscleLove" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
-    もっとフィットネスコンテンツを見る
+    もっとセクシーコンテンツを見る
   </a>
   <a href="https://x.com/MuscleGirlLove7" rel="nofollow" target="_blank"
      style="display: inline-block; padding: 10px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
@@ -471,9 +492,9 @@ def _build_sns_section() -> str:
 def _build_related_section() -> str:
     """関連コンテンツセクションを生成する"""
     suggestions = [
-        "他にもフィットネス関連の作品を多数紹介しています。",
-        "このジャンルの他のおすすめ作品もチェックしてみてください。",
-        "関連するおすすめ作品は、カテゴリーページからご覧いただけます。",
+        "他にも筋肉美女系のセクシー作品を多数紹介しています。",
+        "このジャンルの他の抜ける作品もチェックしてみてください。",
+        "関連するエロ作品は、カテゴリーページからご覧いただけます。",
     ]
     return f"""
 ### あわせてチェック
