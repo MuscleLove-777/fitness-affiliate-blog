@@ -142,6 +142,22 @@ def _parse_item(item: dict) -> Optional[dict]:
             actress_list = item_info.get("actress", [])
             actresses = [a.get("name", "") for a in actress_list if a.get("name")]
 
+        # サンプル画像URLのリスト
+        sample_images = []
+        sample_image_data = item.get("sampleImageURL", {})
+        if sample_image_data:
+            sample_s = sample_image_data.get("sample_s", {})
+            if sample_s:
+                sample_images = sample_s.get("image", [])
+
+        # サンプル動画URL
+        sample_movie_url = ""
+        sample_movie_data = item.get("sampleMovieURL", {})
+        if sample_movie_data:
+            size_560 = sample_movie_data.get("size_560_360", "")
+            if size_560:
+                sample_movie_url = size_560
+
         return {
             "title": item.get("title", "タイトル不明"),
             "description": item.get("title", ""),  # DMMは詳細説明がtitleに含まれることが多い
@@ -155,6 +171,8 @@ def _parse_item(item: dict) -> Optional[dict]:
             "actresses": actresses,
             "maker": item_info.get("maker", [{}])[0].get("name", "") if item_info.get("maker") else "",
             "series": item_info.get("series", [{}])[0].get("name", "") if item_info.get("series") else "",
+            "sample_images": sample_images,
+            "sample_movie_url": sample_movie_url,
         }
     except (KeyError, IndexError, TypeError) as e:
         print(f"[警告] 商品データのパースに失敗しました: {e}")

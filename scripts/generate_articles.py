@@ -35,6 +35,10 @@ description: "{{ meta_description }}"
 
 ![{{ title }}]({{ image_url }})
 
+{{ sample_gallery }}
+
+{{ sample_movie }}
+
 ### 商品情報
 
 | 項目 | 内容 |
@@ -47,9 +51,11 @@ description: "{{ meta_description }}"
 
 {{ body_text }}
 
-{{  cta_section }}
+{{ cta_section }}
 
 ---
+
+{{ sns_section }}
 
 {{ related_section }}
 """),
@@ -72,6 +78,10 @@ description: "{{ meta_description }}"
 
 ![{{ title }}]({{ image_url }})
 
+{{ sample_gallery }}
+
+{{ sample_movie }}
+
 {{ body_text }}
 
 {% if actresses %}
@@ -87,6 +97,8 @@ description: "{{ meta_description }}"
 {{ cta_section }}
 
 ---
+
+{{ sns_section }}
 
 {{ related_section }}
 """),
@@ -109,6 +121,10 @@ description: "{{ meta_description }}"
 
 ![{{ title }}]({{ image_url }})
 
+{{ sample_gallery }}
+
+{{ sample_movie }}
+
 ### この作品をおすすめする理由
 
 {{ body_text }}
@@ -120,6 +136,8 @@ description: "{{ meta_description }}"
 {{ cta_section }}
 
 ---
+
+{{ sns_section }}
 
 {{ related_section }}
 """),
@@ -140,6 +158,10 @@ description: "{{ meta_description }}"
 
 ![{{ title }}]({{ image_url }})
 
+{{ sample_gallery }}
+
+{{ sample_movie }}
+
 ### Q. どんな作品？
 
 {{ body_text }}
@@ -157,6 +179,8 @@ description: "{{ meta_description }}"
 {{ cta_section }}
 
 ---
+
+{{ sns_section }}
 
 {{ related_section }}
 """),
@@ -255,6 +279,8 @@ def _generate_single_article(
     actresses = ", ".join(product.get("actresses", []))
     maker = product.get("maker", "")
     series = product.get("series", "")
+    sample_images = product.get("sample_images", [])
+    sample_movie_url = product.get("sample_movie_url", "")
 
     # 日付の整形（APIの日付 or 今日の日付）
     raw_date = product.get("date", "")
@@ -292,6 +318,15 @@ def _generate_single_article(
     # CTAセクションの生成
     cta_section = _build_cta(affiliate_url, title)
 
+    # サンプル画像ギャラリー
+    sample_gallery = _build_sample_gallery(sample_images)
+
+    # サンプル動画セクション
+    sample_movie = _build_sample_movie(sample_movie_url)
+
+    # SNSリンクセクション
+    sns_section = _build_sns_section()
+
     # 関連商品セクション
     related_section = _build_related_section()
 
@@ -313,6 +348,9 @@ def _generate_single_article(
         series=series,
         actresses=actresses,
         cta_section=cta_section,
+        sample_gallery=sample_gallery,
+        sample_movie=sample_movie,
+        sns_section=sns_section,
         related_section=related_section,
     )
 
@@ -370,6 +408,59 @@ def _build_cta(affiliate_url: str, title: str) -> str:
 """
 
 
+def _build_sample_gallery(sample_images: list[str]) -> str:
+    """サンプル画像ギャラリーを生成する（最大6枚）"""
+    if not sample_images:
+        return ""
+
+    images = sample_images[:6]
+
+    gallery_html = """
+### サンプル画像
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 1em 0;">
+"""
+    for img_url in images:
+        gallery_html += f'  <img src="{img_url}" alt="サンプル画像" style="width: 30%; min-width: 150px; border-radius: 4px;" loading="lazy" />\n'
+
+    gallery_html += "</div>\n"
+    return gallery_html
+
+
+def _build_sample_movie(sample_movie_url: str) -> str:
+    """サンプル動画の埋め込みセクションを生成する"""
+    if not sample_movie_url:
+        return ""
+
+    return f"""
+### サンプル動画を見る
+
+<div style="text-align: center; margin: 1.5em 0;">
+  <iframe src="{sample_movie_url}" width="560" height="360" frameborder="0" allowfullscreen
+          style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+  </iframe>
+</div>
+"""
+
+
+def _build_sns_section() -> str:
+    """SNSリンクセクションを生成する"""
+    return """
+### フォロー & もっと見る
+
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5em 0;">
+  <a href="https://www.patreon.com/musclelovejp" rel="nofollow" target="_blank"
+     style="display: inline-block; padding: 10px 24px; background: #FF424D; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
+    もっとフィットネスコンテンツを見る
+  </a>
+  <a href="https://x.com/MuscleGirlLove7" rel="nofollow" target="_blank"
+     style="display: inline-block; padding: 10px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold;">
+    フォローして最新情報をGET
+  </a>
+</div>
+"""
+
+
 def _build_related_section() -> str:
     """関連コンテンツセクションを生成する"""
     suggestions = [
@@ -401,6 +492,12 @@ if __name__ == "__main__":
             "actresses": ["テスト出演者"],
             "maker": "テストメーカー",
             "series": "",
+            "sample_images": [
+                "https://example.com/sample1.jpg",
+                "https://example.com/sample2.jpg",
+                "https://example.com/sample3.jpg",
+            ],
+            "sample_movie_url": "https://example.com/sample_movie.mp4",
         }
     ]
     files = generate_articles(test_products)
