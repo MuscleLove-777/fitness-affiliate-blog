@@ -97,10 +97,46 @@ def fetch_products(
     for item in items:
         product = _parse_item(item)
         if product:
-            products.append(product)
+            # タイトルにキーワード関連語が含まれているかフィルタリング
+            if _is_relevant(product, keyword):
+                products.append(product)
+            else:
+                print(f"[除外] 関連度低: {product['title'][:40]}...")
 
-    print(f"[完了] {len(products)}件の商品データを取得しました")
+    print(f"[完了] {len(products)}件の関連商品データを取得しました")
     return products
+
+
+# 筋肉・フィットネス系に関連するキーワード（タイトルやジャンルに含まれるべき語句）
+RELEVANT_KEYWORDS = [
+    "筋肉", "マッスル", "フィットネス", "トレーニング", "ヨガ",
+    "腹筋", "鍛え", "ボディビル", "スポーツ", "アスリート",
+    "インストラクター", "ジム", "ワークアウト", "ボディメイク",
+    "肉体", "肉感", "むっちり", "ムチムチ", "引き締",
+    "スパッツ", "レオタード", "体操",
+]
+
+
+def _is_relevant(product: dict, keyword: str) -> bool:
+    """
+    商品がテーマ（筋肉・フィットネス系）に関連するかチェックする
+
+    タイトル・ジャンルに関連キーワードが1つでも含まれていればTrue
+    """
+    title = product.get("title", "").lower()
+    genres = " ".join(product.get("genres", [])).lower()
+    check_text = f"{title} {genres}"
+
+    # 検索に使ったキーワード自体がタイトルに含まれるか
+    if keyword.lower() in check_text:
+        return True
+
+    # 関連キーワードのいずれかが含まれるか
+    for kw in RELEVANT_KEYWORDS:
+        if kw.lower() in check_text:
+            return True
+
+    return False
 
 
 def _build_affiliate_url(item: dict, affiliate_id: str) -> str:

@@ -137,11 +137,13 @@ def main() -> None:
             hits_per_keyword=max(1, args.count // len(Config.DEFAULT_KEYWORDS)),
         )
     else:
-        # 単一キーワードで取得
+        # 単一キーワードで取得（フィルタリングで減る分を考慮して多めに取得）
         products = fetch_products(
             keyword=args.keyword,
-            hits=args.count,
+            hits=min(args.count * 4, 100),
         )
+        # 必要件数に絞る
+        products = products[:args.count]
 
     if not products:
         print("[終了] 取得できた商品がないため、記事生成をスキップします")
