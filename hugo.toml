@@ -33,10 +33,6 @@ buildExpired = false
     name = "x-twitter"
     url = "https://x.com/MuscleGirlLove7"
 
-  [[params.socialIcons]]
-    name = "patreon"
-    url = "https://www.patreon.com/musclelovejp"
-
 [params.assets]
   favicon = "/favicon.ico"
 
