@@ -20,13 +20,13 @@ buildExpired = false
   author = "MuscleLove"
   images = ["https://musclelove-777.github.io/fitness-affiliate-blog/favicon.svg"]
   keywords = ["筋肉 AV", "マッスル女優", "フィットネス AV", "筋肉質 女優", "腹筋 美女", "筋肉美女", "セクシー フィットネス"]
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowShareButtons = true
+  defaultTheme = "dark"
+  ShowReadingTime = false
+  ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
-  ShowToc = true
+  ShowToc = false
   TocOpen = false
   comments = false
 
@@ -52,7 +52,8 @@ buildExpired = false
 [params.cover]
   hidden = false
   hiddenInList = false
-  hiddenInSingle = true
+  hiddenInSingle = false
+  linkFullImages = true
 
 [params.fuseOpts]
   isCaseSensitive = false
