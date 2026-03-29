@@ -12,9 +12,10 @@ buildExpired = false
 
 [sitemap]
   changefreq = "daily"
-  priority = 0.5
+  priority = 0.7
 
 [params]
+  canonicalURL = true
   env = "production"
   description = "MuscleLoveが厳選する筋肉質な美女・マッスル女優のセクシー動画を毎日お届け。フィットネス系AVの最新作品をサンプル動画付きで紹介。"
   author = "MuscleLove"
