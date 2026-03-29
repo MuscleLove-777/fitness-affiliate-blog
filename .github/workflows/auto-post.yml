@@ -28,15 +28,7 @@ jobs:
           AFFILIATE_ID: ${{ secrets.AFFILIATE_ID }}
           SITE_NAME: ${{ secrets.SITE_NAME }}
         working-directory: scripts
-        run: python main.py --keyword "筋肉" --count 3
-
-      - name: Generate articles (フィットネス)
-        env:
-          API_ID: ${{ secrets.API_ID }}
-          AFFILIATE_ID: ${{ secrets.AFFILIATE_ID }}
-          SITE_NAME: ${{ secrets.SITE_NAME }}
-        working-directory: scripts
-        run: python main.py --keyword "フィットネス" --count 2
+        run: python main.py --keyword "筋肉" --count 1
 
       - name: Commit and push
         run: |
