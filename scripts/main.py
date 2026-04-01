@@ -140,8 +140,11 @@ def main() -> None:
         # 単一キーワードで取得（フィルタリングで減る分を考慮して多めに取得）
         products = fetch_products(
             keyword=args.keyword,
-            hits=min(args.count * 4, 100),
+            hits=min(max(args.count * 4, 20), 100),
         )
+        # シャッフルしてバリエーションを出す（毎回同じ商品にならないように）
+        import random
+        random.shuffle(products)
         # 必要件数に絞る
         products = products[:args.count]
 

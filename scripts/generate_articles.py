@@ -339,7 +339,13 @@ def _generate_single_article(
     filename = f"{date_prefix}-{slug}.md"
     filepath = os.path.join(output_dir, filename)
 
-    # 既存ファイルがあればスキップ
+    # 同じcontent_id（スラッグ）の記事が既に存在するかチェック（日付違いの重複を防止）
+    existing_files = list(Path(output_dir).glob(f"*-{slug}.md"))
+    if existing_files:
+        print(f"[スキップ] 同じ商品の記事が既に存在: {existing_files[0].name}")
+        return ""
+
+    # 完全一致のファイルチェック（念のため）
     if os.path.exists(filepath):
         print(f"[スキップ] 既に存在: {filename}")
         return ""
@@ -592,6 +598,7 @@ def _build_sister_sites():
         "おっぱいパラダイス": "https://musclelove-777.github.io/oppai-paradise/",
         "二次元嫁実写化計画": "https://musclelove-777.github.io/nijigen-realize/",
         "フェチの殿堂": "https://musclelove-777.github.io/fetish-dendo/",
+        "大人のおもちゃ研究所": "https://musclelove-777.github.io/goods-lab/",
     }
     others = [(k, v) for k, v in sites.items() if v != CURRENT_SITE_URL]
     picks = random.sample(others, min(3, len(others)))
