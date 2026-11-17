@@ -32,3 +32,6 @@ dist/
 build/
 .venv/
 venv/
+
+# internal reports are not part of the site
+*.pptx
